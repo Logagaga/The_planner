@@ -17,6 +17,11 @@ npm run dev
 啟動後終端機會顯示一個網址（通常是 http://localhost:5173），用瀏覽器打開就可以看到APP。
 
 ```bash
+# 跑自動化測試（確認畫布/引導問答等核心流程沒有壞掉）
+npm run test
+```
+
+```bash
 # 建置成正式版（產生 dist 資料夾，之後上線用）
 npm run build
 ```

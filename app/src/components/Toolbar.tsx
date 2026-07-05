@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePlanStore } from '../store/usePlanStore'
 
 export function Toolbar() {
-  const plans = usePlanStore((s) => s.listPlans())
+  const plansRecord = usePlanStore((s) => s.plans)
+  const plans = useMemo(() => Object.values(plansRecord).map((p) => p.meta), [plansRecord])
   const activePlanId = usePlanStore((s) => s.activePlanId)
   const openPlan = usePlanStore((s) => s.openPlan)
   const setWizardOpen = usePlanStore((s) => s.setWizardOpen)
